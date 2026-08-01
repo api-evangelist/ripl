@@ -1,8 +1,29 @@
 aid: ripl
 name: Ripl
-description: Ripl is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Ripl is a social media marketing platform for small businesses, helping owners
+  create, schedule, and publish engaging content across Instagram, Facebook,
+  TikTok, YouTube, and other channels from customizable, industry-specific
+  templates. It bundles branded post design, stock media, royalty-free music,
+  scheduling, multi-account management, team collaboration, and an AI caption
+  writer so restaurants, retailers, real estate agents, nonprofits, and other
+  small businesses can maintain a consistent, professional online presence
+  without a dedicated marketing team. Ripl is a Techstars portfolio company. Its
+  public website (ripl.com) is built on Wix and exposes no first-party developer
+  API; the app at app.ripl.com is the primary consumer product.
 url: https://raw.githubusercontent.com/api-evangelist/ripl/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://static.wixstatic.com/ficons/d8d800_48a04f46042747328480b7d817dc73f2~mv2.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,9 +32,15 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Social Media Marketing
+- Small Business
+- Content Scheduling
+- Marketing
+- SaaS
+- Social Media Management
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,4 +49,32 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://ripl.com/
+  url: https://www.ripl.com/
+- type: Pricing
+  url: https://www.ripl.com/features-and-price
+- type: Blog
+  url: https://www.ripl.com/blog
+- type: Support
+  url: http://help.ripl.com/support/home
+- type: HelpCenter
+  url: http://help.ripl.com/support/home
+- type: SignUp
+  url: https://app.ripl.com/login?a=firstRun
+- type: Login
+  url: https://app.ripl.com/login
+- type: TermsOfService
+  url: https://www.ripl.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.ripl.com/privacy-policy
+- type: MCPServer
+  name: Ripl (Wix Site MCP)
+  url: mcp/ripl-mcp.yml
+- type: LLMsTxt
+  url: llms/ripl-llms.txt
+- type: DomainSecurity
+  url: security/ripl-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1

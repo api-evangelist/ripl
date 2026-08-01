@@ -1,0 +1,14 @@
+{
+  "repo": "ripl",
+  "feeds": [
+    {
+      "source": "https://www.ripl.com/features-and-price",
+      "feed_url": "https://www.ripl.com/features-and-price",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-07-25T15:00:33Z"
+}
