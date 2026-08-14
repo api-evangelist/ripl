@@ -13,15 +13,16 @@ description: >-
   API; the app at app.ripl.com is the primary consumer product.
 url: https://raw.githubusercontent.com/api-evangelist/ripl/refs/heads/main/apis.yml
 accessModel:
-  pricing: unknown
+  pricing: paid
   onboarding: unknown
-  trial: false
+  trial: true
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
+  label: Paid (free trial)
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-08-13'
   method: derived
 image: https://static.wixstatic.com/ficons/d8d800_48a04f46042747328480b7d817dc73f2~mv2.ico
 x-type: company
@@ -29,10 +30,10 @@ x-source: vc-portfolio
 x-backed-by:
 - techstars
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-developer-program
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Social Media Marketing
@@ -73,8 +74,35 @@ common:
   url: llms/ripl-llms.txt
 - type: DomainSecurity
   url: security/ripl-domain-security.yml
+- type: GettingStarted
+  url: https://help.ripl.com/support/solutions/16000060995
+- type: Plans
+  url: plans/ripl-plans-pricing.yml
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-13'
   status: minimal
-  artifacts_added: 3
+  artifacts_added: 6
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Ripl ships a consumer/SMB social-posting app and no developer program at all — ripl.com/api and
+    ripl.com/developers are 404, the Freshdesk help center has no API, webhook or integration section,
+    and api.ripl.com is a private Rails/Heroku backend whose root 301s to the marketing site and which
+    404s every spec, docs and /.well-known path; the only machine-readable surface on the domain is the
+    generic Wix Site MCP server Wix mounts at /_api/mcp for every site it hosts.
+  evidence:
+  - url: https://www.ripl.com/api
+    status: 404
+  - url: https://www.ripl.com/developers
+    status: 404
+  - url: https://api.ripl.com/openapi.json
+    status: 404
+  - url: https://api.ripl.com/
+    status: 301
+  - url: https://www.ripl.com/.well-known/agent-card.json
+    status: 400
+  - url: https://www.ripl.com/_api/mcp
+    status: 200
+  checked: '2026-08-13'
