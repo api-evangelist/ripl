@@ -1,0 +1,53 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.ripl.com/features-and-price
+note: >-
+  Ripl publishes consumer/SMB subscription pricing for its app only. There is no developer tier, no
+  API plan, no usage-based metering and no published quota — these are seat/feature tiers for the Ripl
+  mobile and web app, not API plans. Both tiers carry a 7-day free trial. The published page states
+  monthly pricing only; no annual price is shown on the page.
+description: >-
+  Two published self-serve subscription tiers for the Ripl app, each with a 7-day free trial. No free
+  standing tier, no developer or API plan.
+currency: USD
+billing_period: monthly
+plan_count: 2
+plans:
+- name: Base Plan
+  tagline: Quick and easy impactful marketing
+  description: Quick and easy impactful marketing; includes a 7-day free trial.
+  price: 12.99
+  currency: USD
+  period: month
+  trial_days: 7
+  includes:
+  - Professionally designed ready-to-use templates
+  - Content posting ideas for your specific business
+  - Consistent branding across all your posts with one click
+  - Free access to professional stock images, videos, and music
+  - Create and share from any device
+  - One-click sharing directly to your social media channels
+  - Royalty-free stock music
+  quota: null
+  overage: null
+- name: Premium Plan
+  tagline: Best for planning and working with others
+  description: Best for planning and working with others; includes a 7-day free trial.
+  price: 19.99
+  currency: USD
+  period: month
+  trial_days: 7
+  includes:
+  - Everything in the Base Plan
+  - Schedule social posts in advance
+  - Invite teammates to collaborate on your business's Team account
+  - Manage multiple businesses from one account
+  - Fast-tracked Customer Support
+  - AI generated caption writer
+  quota: null
+  overage: null
+api_plans: []
+x-evidence:
+  fetched: '2026-08-13'
+  url: https://www.ripl.com/features-and-price
+  http_status: 200

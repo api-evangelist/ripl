@@ -1,14 +1,16 @@
-generated: '2026-07-21'
-method: searched
+generated: '2026-08-13'
+method: probed
 status: published
-source: https://ripl.com/llms.txt
+source: https://www.ripl.com/_api/mcp
 notes: >-
-  Ripl's ripl.com site is built and hosted on Wix. Wix exposes a generic
-  site-level Model Context Protocol (MCP) server for every site; this is NOT a
-  first-party Ripl product/developer API. It provides public site content and
-  visitor-scoped actions (business details, search, booking, checkout hand-off)
-  via the Wix Site MCP. No authentication is required and only public site
-  information is accessible.
+  Ripl's ripl.com site is built and hosted on Wix. Wix exposes a generic site-level Model Context
+  Protocol (MCP) server for every site it hosts; this is NOT a first-party Ripl product or developer
+  API. It is served from Ripl's own host (www.ripl.com), advertised in Ripl's own /llms.txt, and is
+  reachable anonymously, so it is a real agent surface on Ripl's domain — but the tools are Wix
+  platform tools, not Ripl product operations. Ripl publishes no OpenAPI, no developer portal and no
+  first-party API of its own (see x-coverage in apis.yml). The 2026-08-13 live tools/list returned 9
+  tools; Ripl's llms.txt still advertises the older 7-tool set (BrowseWixRESTDocsMenu and ExecuteWixAPI
+  are new, and ExecuteWixAPI is annotated destructiveHint:true).
 server:
   name: ripl-wix-site
   vendor: Wix
@@ -16,18 +18,71 @@ server:
   url: https://www.ripl.com/_api/mcp
   auth: none
   docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+deployment:
+  mode: remote
+  endpoint: https://www.ripl.com/_api/mcp
+  install: null
+  package: null
+  auth: none
+  verified: probed
+x-evidence:
+  fetched: '2026-08-13'
+  url: https://www.ripl.com/_api/mcp
+  method: POST
+  jsonrpc_method: tools/list
+  http_status: 200
+  content_type: application/json; charset=utf-8
+  bytes: 28683
+  tool_count: 9
+  verbatim_file: ripl-mcp-tools-list.json
 tools:
 - name: GetBusinessDetails
   description: Retrieves business and site details such as timezone, email, phone, and address.
+  input_schema_properties: []
 - name: SearchInSite
   description: Searches the site for information.
+  input_schema_properties:
+  - searchTerm
 - name: SearchSiteApiDocs
-  description: Retrieves the API documentation for the Wix business solutions installed on this site.
+  description: Retrieves the API documentation for the Wix business solutions installed on this site,
+    and informs the AI client how to use those APIs.
+  input_schema_properties:
+  - searchTerm
 - name: GenerateVisitorToken
-  description: Creates a new visitor session and obtains a visitor access token for the site.
+  description: Creates a new visitor session and obtains a visitor access token for the site. Must be
+    called before any CallWixSiteAPI request.
+  input_schema_properties: []
 - name: CallWixSiteAPI
-  description: Calls API methods on the site to perform actions on a visitor's behalf (query data, book an appointment, start a purchase).
+  description: Calls Wix API methods on the site to act on a visitor's behalf (query site data, book an
+    appointment, start a purchase).
+  input_schema_properties:
+  - body
+  - method
+  - url
+  - visitorToken
+- name: ExecuteWixAPI
+  description: Executes code against the Wix APIs for this site. Annotated readOnlyHint:false,
+    destructiveHint:true — the only mutating tool on this surface.
+  input_schema_properties:
+  - code
+  - hasMutations
+  - reason
+  - sourceDocUrls
+  - visitorToken
+  annotations:
+    read_only: false
+    destructive: true
+- name: BrowseWixRESTDocsMenu
+  description: Browses the Wix REST documentation menu tree.
+  input_schema_properties:
+  - menuUrl
+  - reason
 - name: ReadFullDocsArticle
   description: Fetches a complete article from the Wix developer documentation portal.
+  input_schema_properties:
+  - articleUrl
 - name: ReadFullDocsMethodSchema
-  description: Fetches the full schema for a Wix API method.
+  description: Fetches the full request/response schema for a Wix API method.
+  input_schema_properties:
+  - articleUrl
+  - reason

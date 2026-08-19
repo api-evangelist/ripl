@@ -1,0 +1,22 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.ripl.com/, http://help.ripl.com/support/home, https://ripl.statuspage.io
+note: >-
+  Ripl publishes no API and therefore no API versioning policy, no deprecation/Sunset policy, no SLA
+  and no changelog. A Statuspage tenant at ripl.statuspage.io resolves and its title reads "Ripl
+  Status", but the page is INACTIVE — it 302s to /inactive and its api/v2/summary.json refuses to
+  answer ("Your page is inactive"). It serves no status data, so it is NOT recorded as a status page
+  and NO StatusPage pointer is emitted. Likewise no Deprecation pointer.
+versioning: null
+deprecation: null
+sla: null
+status_page: null
+status_page_candidate:
+  url: https://ripl.statuspage.io
+  status: 200
+  effective_url: https://ripl.statuspage.io/inactive
+  title: Ripl Status - Page Inactive
+  serving: false
+  reason: Statuspage tenant exists but is deactivated; summary.json returns "Your page is inactive."
+changelog: null
+deprecated_operations: []

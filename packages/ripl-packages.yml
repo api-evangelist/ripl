@@ -1,0 +1,39 @@
+generated: '2026-08-13'
+method: searched
+source: registry.npmjs.org, pypi.org, api.github.com
+note: >-
+  No first-party Ripl (ripl.com) client library exists on any public registry. Three same-name
+  candidates were found and REJECTED on ownership grounds — recorded here so a later round does not
+  re-credit them to this company. Ripl ships consumer mobile apps (iOS/Android) and a web app, not
+  SDKs. No SDKs pointer is emitted in apis.yml.
+package_count: 0
+packages: []
+rejected_candidates:
+- name: '@ripl/* (core, web, canvas, svg, webgpu, charts, node, terminal, dom, vdom, 3d, devtools, utilities)'
+  registry: npm
+  url: https://www.npmjs.com/org/ripl
+  owner: ripl.run (andrewcourtice)
+  version: null
+  published: null
+  reason: >-
+    A TypeScript 2D/3D rendering and charting library published to homepage https://www.ripl.run and
+    https://github.com/andrewcourtice/ripl. Unrelated to Ripl the social media marketing platform;
+    name collision only.
+- name: ripl
+  registry: pypi
+  url: https://pypi.org/project/ripl/
+  owner: Johnny Gill / openbermuda
+  version: 0.0.2
+  published: null
+  reason: >-
+    "Really Incredibly Point Less presentation tools" (home_page github.com/openbermuda/ripl).
+    Unrelated; name collision only.
+- name: github.com/ripl
+  registry: github-org
+  url: https://github.com/ripl
+  owner: Robot Intelligence through Perception Laboratory (TTIC, Chicago; blog ripl.ttic.edu)
+  version: null
+  published: null
+  reason: >-
+    A robotics research lab, not the ripl.com company. No GitHubOrganization pointer is emitted for
+    Ripl because this org is not theirs and no Ripl-owned org was found.

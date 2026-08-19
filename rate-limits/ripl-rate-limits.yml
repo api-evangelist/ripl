@@ -1,0 +1,22 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.ripl.com/features-and-price
+note: >-
+  Ripl publishes no API and therefore no rate limits. The help center (help.ripl.com) has no API,
+  developer, webhook or integration section, and the pricing page documents feature tiers rather than
+  request quotas. No X-RateLimit-*, RateLimit-* or Retry-After headers could be observed because there
+  is no public, unauthenticated API endpoint to call. An honest zero, not an unchecked field.
+limit_count: 0
+limits: []
+headers: []
+exhaustion_status: null
+searched:
+- url: https://www.ripl.com/features-and-price
+  status: 200
+  result: feature tiers only, no request limits
+- url: http://help.ripl.com/support/home
+  status: 200
+  result: no API/developer/webhook section
+- url: https://api.ripl.com/
+  status: 301
+  result: redirects to https://www.ripl.com — no public API surface

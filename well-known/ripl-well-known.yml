@@ -1,0 +1,91 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of every Ripl host named in apis.yml
+note: >-
+  No /.well-known/ document is served on any Ripl host. www.ripl.com is a Wix-hosted site and answers
+  every /.well-known/* path with HTTP 400 and a Wix HTML error page. app.ripl.com is a single-page app
+  whose catch-all answers HTTP 200 with the app's HTML shell for EVERY path including nonsense ones —
+  those 200s are NOT documents and are recorded as misses. help.ripl.com (Freshdesk) and api.ripl.com
+  (a Rails/Heroku app that 301s its root to www.ripl.com) return real 404s. Because nothing returned a
+  200 carrying a real document, NO WellKnown and NO SecurityTxt pointer is emitted in apis.yml.
+hosts_probed:
+- host: www.ripl.com
+  note: Wix-hosted marketing site; all /.well-known/* return 400 HTML
+- host: app.ripl.com
+  note: SPA catch-all; returns 200 text/html shell for every path — soft-200, not a document
+- host: help.ripl.com
+  note: Freshdesk help center; real 404s
+- host: api.ripl.com
+  note: Rails app on Heroku (_ripl_rails_session cookie); root 301 -> https://www.ripl.com; real 404s
+documents:
+- path: /.well-known/security.txt
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/openid-configuration
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/oauth-authorization-server
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/api-catalog
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/ai-plugin.json
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/agent-card.json
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/agent.json
+  host: www.ripl.com
+  status: 400
+  document: false
+- path: /.well-known/security.txt
+  host: app.ripl.com
+  status: 200
+  document: false
+  note: HTML SPA shell, not a security.txt — soft-200
+- path: /.well-known/agent-card.json
+  host: app.ripl.com
+  status: 200
+  document: false
+  note: HTML SPA shell, not an agent card — soft-200
+- path: /.well-known/security.txt
+  host: help.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/agent-card.json
+  host: help.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/security.txt
+  host: api.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/oauth-authorization-server
+  host: api.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/oauth-protected-resource
+  host: api.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/agent.json
+  host: api.ripl.com
+  status: 404
+  document: false
+- path: /.well-known/api-catalog
+  host: api.ripl.com
+  status: 404
+  document: false
+summary:
+  documents_found: 0
+  security_txt: false
+  agent_card: false
+  oauth_metadata: false
