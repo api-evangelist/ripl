@@ -2,15 +2,14 @@ generated: '2026-08-13'
 method: probed
 status: published
 source: https://www.ripl.com/_api/mcp
-notes: >-
-  Ripl's ripl.com site is built and hosted on Wix. Wix exposes a generic site-level Model Context
-  Protocol (MCP) server for every site it hosts; this is NOT a first-party Ripl product or developer
-  API. It is served from Ripl's own host (www.ripl.com), advertised in Ripl's own /llms.txt, and is
-  reachable anonymously, so it is a real agent surface on Ripl's domain — but the tools are Wix
-  platform tools, not Ripl product operations. Ripl publishes no OpenAPI, no developer portal and no
-  first-party API of its own (see x-coverage in apis.yml). The 2026-08-13 live tools/list returned 9
-  tools; Ripl's llms.txt still advertises the older 7-tool set (BrowseWixRESTDocsMenu and ExecuteWixAPI
-  are new, and ExecuteWixAPI is annotated destructiveHint:true).
+notes: Ripl's ripl.com site is built and hosted on Wix. Wix exposes a generic site-level Model Context
+  Protocol (MCP) server for every site it hosts; this is NOT a first-party Ripl product or developer API.
+  It is served from Ripl's own host (www.ripl.com), advertised in Ripl's own /llms.txt, and is reachable
+  anonymously, so it is a real agent surface on Ripl's domain — but the tools are Wix platform tools,
+  not Ripl product operations. Ripl publishes no OpenAPI, no developer portal and no first-party API of
+  its own (see x-coverage in apis.yml). The 2026-08-13 live tools/list returned 9 tools; Ripl's llms.txt
+  still advertises the older 7-tool set (BrowseWixRESTDocsMenu and ExecuteWixAPI are new, and ExecuteWixAPI
+  is annotated destructiveHint:true).
 server:
   name: ripl-wix-site
   vendor: Wix
@@ -21,10 +20,11 @@ server:
 deployment:
   mode: remote
   endpoint: https://www.ripl.com/_api/mcp
-  install: null
-  package: null
-  auth: none
   verified: probed
+  probe: live
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
 x-evidence:
   fetched: '2026-08-13'
   url: https://www.ripl.com/_api/mcp
@@ -61,8 +61,8 @@ tools:
   - url
   - visitorToken
 - name: ExecuteWixAPI
-  description: Executes code against the Wix APIs for this site. Annotated readOnlyHint:false,
-    destructiveHint:true — the only mutating tool on this surface.
+  description: Executes code against the Wix APIs for this site. Annotated readOnlyHint:false, destructiveHint:true
+    — the only mutating tool on this surface.
   input_schema_properties:
   - code
   - hasMutations
